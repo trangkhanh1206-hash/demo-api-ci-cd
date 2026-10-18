@@ -16,6 +16,6 @@ jobs:
         run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
         
       - name: Chạy kịch bản Monitor trực tiếp từ Cloud
-        # Thay ID của Collection Monitor và ID của Environment vào đây
+        # Thay ID của Collection Monitor vào đây
         run: |
-          postman collection run "ID_CỦA_COLLECTION_MONITOR" -e "ID_CỦA_ENVIRONMENT"
+          postman collection run "34104301-5ea66b53-dd9b-47ef-840c-45823c2df9ce"
