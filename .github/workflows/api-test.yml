@@ -6,12 +6,15 @@ jobs:
   automated-api-tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Install Postman CLI
+      - name: 1. Checkout mã nguồn
+        uses: actions/checkout@v4
+      - name: 2. Install Postman CLI
         run: |
           curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
-      - name: Login to Postman CLI
+      - name: 3. Login to Postman CLI
         run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
-      - name: Run API tests
+      - name: 4. Run API tests
         run: |
-          postman collection run "34104301-6d11075e-b109-4c38-a049-0d0808e2703b" -e "34104301-551556bd-d9d9-4dc2-a919-28d7d8da885e"
+          postman collection run RestfulBooker_API_Collection.postman_collection.json -e RestfulBooker_Env.postman_environment.json -d booking_data.csv
+     
+
